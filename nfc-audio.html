@@ -1,0 +1,25 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>NFC Package</title>
+        </head>
+    <body>
+    
+    <audio controls id="adu" autoplay>
+        <source id="adu1" src="/1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    <script>
+        const keyvalues = window.location.search;
+const value = new URLSearchParams(keyvalues);
+const idvalue = value.get('file');
+console.log(idvalue)
+document.getElementById("adu1").src = "/"+idvalue+".mp3";
+console.log( document.getElementById("adu1").src)
+let vid = document.getElementById("adu");
+vid.autoplay = true;
+vid.load();
+  </script>
+    </body>
+    </html>
