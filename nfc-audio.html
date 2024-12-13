@@ -4,22 +4,252 @@
         <head>
             <title>NFC Package</title>
         </head>
-    <body>
-    
-    <audio controls id="adu" autoplay>
+    <body onclick="aplay()">
+        <section class="header">
+            <div>
+            <img src="/white_logo.png" alt="">
+            </div>
+            <div>
+            <h1 style="text-align: center;">National Institute of Food Technology, Entrepreneurship and Management, Thanjavur (NIFTEM-T)</h1>
+                <h3 style="text-align: center;">Ministry of Food Processing Industries, Government of India</h3>
+            </div>
+            </section>
+            <div class="msg">
+                <span><b>Project Title: </b>NFC enabled Packaging Material</span>
+                <span style="color: green; ">Click on anywhere to play or pause</span>
+            
+                <p id="info" style="text-align: center;margin-bottom: 0px;">
+</p>
+    <audio id="adu" autoplay controls>
+
         <source id="adu1" src="/1.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
     </audio>
+</div>
     <script>
-        const keyvalues = window.location.search;
+        var info = [
+`                    <b>Product Info </b><br>Arokya full cream milk<br>
+                     Fat 6% and SNF 9% <br>
+Net quantity 500 ml<br>
+Use by 22 dec 24<br>
+MRP ₹37<br>
+Allergen milk and milk solids<br>
+</p><p>
+                    <b>Nutritional facts with 2 servings per pack </b> <br>
+
+Per serving consist of energy 85 kcal<br>
+Protein 3.2 grams<br>
+Total carbohydrate 4.7 grams<br>
+Dietary fibre 0 gram<br>
+Total sugars 4.7 grams<br>
+Added sugar 0<br>
+Total fat 6 grams<br>
+Saturated fat 3.5 grams<br>
+Trans fat 0gram<br>
+Cholestrol 20 milli grams<br>
+Sodium 45 milli grams<br>
+For consumer queries call toll free no 1800 120 3355
+`,
+                    `                    <b>Product Info </b><br>Milk product full cream milk<br>
+                     Fat 6% and SNF 9% <br>
+Net quantity 200 ml<br>
+Use by 11 dec 24<br>
+MRP ₹15<br>
+Allergen milk and milk solids<br>
+</p><p>
+                    <b>Nutritional facts with 2 servings per pack </b> <br>
+
+Per serving consist of energy 85 kcal<br>
+Protein 3.2 grams<br>
+Total carbohydrate 4.7 grams<br>
+Dietary fibre 0 gram<br>
+Total sugars 4.7 grams<br>
+Added sugar 0<br>
+Total fat 6 grams<br>
+Saturated fat 3.5 grams<br>
+Trans fat 0gram<br>
+Cholestrol 20 milli grams<br>
+Sodium 45 milli grams<br>
+For consumer queries call toll free no 1800 120 3355
+`,
+                    `                    <b>Product Info </b><br>Hatsun Pasteurized Cooking Butter<br>
+                    Net quantity of 100g <br>MRP ₹65 <br>
+                    Use by date 5 March 2025 <br>
+                    Allergen info it contains milk <br><br>
+</p><p> 
+                    <b>Nutrition information  Per serving </b> <br>
+                    Energy 108 kilocalories<br>
+                    Protein 0.3g g<br>
+                    Total carbohydrates 0 grams<br>
+                    Total sugars 0 grams<br>
+                    Total fat 80 grams<br>
+                    Saturated fat 53 grams<br>
+                    Trans fat 0<br>
+                    Cholestrol 207 milli grams<br>
+                    Sodium 13 milligrams<br>
+                    For contact call toll free number 1800 120 3355`,
+                    `                    <b>Product Info </b><br>Hatsun Curd <br>
+                    Net quantity of 85g <br>MRP ₹10 <br>
+                    Use by date 16 December 2024 <br>
+                    Allergen info it contains milk <br><br>
+</p><p>
+                    <b>Nutrition information  Per serving </b> <br>
+                    Energy 65 kilocalories<br>
+                    Protein 3.4 g<br>
+                    Total carbohydrates 5.1 grams<br>
+                    Total sugars 5.1 grams<br>
+                    Added sugars 0gram<br>
+                    Total fat 3.4 grams<br>
+                    Saturated fat 2.1 grams<br>
+                    Trans fat 0<br>
+                    Cholestrol 12.8 milli grams<br>
+                    Sodium 42.5 milligrams<br>
+                    For contact call toll free number 18001203355`,
+`                    <b>Product Info </b><br>Milk product full cream milk<br>
+                     Fat 6% and SNF 9% <br>
+Net quantity 200 ml<br>
+Use by 11 dec 24<br>
+MRP ₹15<br>
+Allergen milk and milk solids<br>
+</p><p>
+                    <b>Nutritional facts with 2 servings per pack </b> <br>
+
+Per serving consist of energy 85 kcal<br>
+Protein 3.2 grams<br>
+Total carbohydrate 4.7 grams<br>
+Dietary fibre 0 gram<br>
+Total sugars 4.7 grams<br>
+Added sugar 0<br>
+Total fat 6 grams<br>
+Saturated fat 3.5 grams<br>
+Trans fat 0gram<br>
+Cholestrol 20 milli grams<br>
+Sodium 45 milli grams<br>
+For consumer queries call toll free no 1800 120 3355
+`,
+                    `                    <b>Product Info </b><br> Milky Bar Moosha with yummy milk goodness , caramel plus nougat bar , by Nestle India <br>
+                    Net quantity of 38g <br>MRP ₹20 <br>
+                    Use by date May 2025 <br>
+                    Allergen info it contains barley, milk, sesame, soy and wheaT.<br><br>
+</p><p>
+                    <b>Nutrition information  Per serving  </b> <br>
+                    Energy 82 kilocalories<br>
+                    Protein 0.7 g<br>
+                    Total carbohydrates 12.4 grams<br>
+                    Total sugars 9.3 grams<br>
+                    Added sugars 8.1 gram<br>
+                    Total fat 3.2 grams<br>
+                    Saturated fat not more than 2.6 grams<br>
+                    Trans fat not more than 0.01grams<br>
+                    Cholestrol 16.4 milli grams<br>
+                    For contact call toll free number 1800 103 1947`,
+                    `                    <b>Product Info </b><br>Arun icecream's vanilla flavoured icecream<br>
+                    Net quantity of 33g <br>MRP ₹15 <br>
+                    Use by date 17 October 2025 <br>
+                    Allergen info it contains milk.<br><br>
+</p><p>
+                    <b>Nutrition information  Per serving  </b> <br>
+                    Energy 79.5 kilocalories<br>
+                    Protein 1.5 g<br>
+                    Total carbohydrates 8.7 grams<br>
+                    Total sugars 9.3 grams<br>
+                    Added sugars 5.8 gram<br>
+                    Total fat 4.3 grams<br>
+                    Saturated fat 2.6 grams<br>
+                    Trans fat 0 grams<br>
+                    Cholestrol 16.3 milli grams<br>
+                    For contact call toll free number 18004253355`
+
+        ]
+const keyvalues = window.location.search;
 const value = new URLSearchParams(keyvalues);
 const idvalue = value.get('file');
 console.log(idvalue)
 document.getElementById("adu1").src = "/"+idvalue+".mp3";
-console.log( document.getElementById("adu1").src)
-let vid = document.getElementById("adu");
-vid.autoplay = true;
-vid.load();
+console.log( document.getElementById("adu1").src);
+document.getElementById("info").innerHTML=info[idvalue-1]
+var check = "no"
+function aplay (){
+    var adut = document.getElementById("adu")
+    console.log(check=="no")
+   if (check=="on"){
+    
+    adut.pause()
+    check = "no";
+   }
+else {
+    console.log(check=="no")
+    adut.play()
+    check = "on";
+   }
+}
+
   </script>
+  <style>
+body{
+    width: 100vw;
+ height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.msg{
+    margin-top: 10px;
+    background-color: rgb(232, 239, 255);
+    border-radius: 15px;
+    padding: 20px;
+    height: auto;
+    min-width: 450px;
+    top:10px;
+    width: auto;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: start;
+   
+}
+.msg ::-webkit-scrollbar{
+    display: none;
+}
+.msg span{
+    width: 100%;
+text-align: center;
+font-size: 24px;
+}
+.msg p{
+    font-size: 20px;
+    width: auto;
+    overflow:scroll;
+}
+.header{
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 150px;
+    width: 100%;
+}
+.header div{
+    height: 150px;
+    width: auto;
+    height: auto;
+}
+.header img{
+    height: 150px;
+
+}
+.header :nth-child(2){
+    display: block;
+}
+.msg audio{
+    width: 100%;
+height: 100px;
+}
+  </style>
     </body>
     </html>
